@@ -157,3 +157,97 @@ if ( ! function_exists( 'twentytwentyfive_format_binding' ) ) :
 		}
 	}
 endif;
+
+/**
+ * Custom Video Player Facade (Thumbnail + Play Button + Instant YouTube Embed)
+ */
+function twentytwentyfive_custom_video_player() {
+	?>
+	<style>
+	.custom-video-player {
+		position: relative;
+		width: 100%;
+		max-width: 850px;
+		margin: 28px auto;
+		border-radius: 14px;
+		overflow: hidden;
+		aspect-ratio: 16 / 9;
+		background: #000;
+		box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+		cursor: pointer;
+		user-select: none;
+	}
+	.custom-video-player img.video-thumb {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+		transition: transform 0.35s ease, filter 0.35s ease;
+	}
+	.custom-video-player:hover img.video-thumb {
+		transform: scale(1.03);
+		filter: brightness(1.08);
+	}
+	.custom-video-player .video-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.45) 100%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: background 0.3s ease;
+	}
+	.custom-video-player:hover .video-overlay {
+		background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.3) 100%);
+	}
+	.custom-video-player .video-play-btn {
+		width: 72px;
+		height: 50px;
+		background: #ff0000;
+		border-radius: 14px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-shadow: 0 6px 24px rgba(255,0,0,0.5), 0 4px 12px rgba(0,0,0,0.4);
+		transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+	}
+	.custom-video-player:hover .video-play-btn {
+		transform: scale(1.12);
+		background: #e60000;
+		box-shadow: 0 8px 28px rgba(255,0,0,0.7), 0 6px 16px rgba(0,0,0,0.5);
+	}
+	.custom-video-player iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border: none;
+		border-radius: 14px;
+	}
+	</style>
+	<script>
+	function playCustomVideo(el) {
+		var vid = el.getAttribute('data-video');
+		if (vid && !el.querySelector('iframe')) {
+			el.innerHTML = '<iframe width="100%" height="100%" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:14px;" src="https://www.youtube.com/embed/' + encodeURIComponent(vid) + '?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+		}
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('.custom-video-player').forEach(function(player) {
+			player.addEventListener('click', function() {
+				playCustomVideo(this);
+			});
+		});
+	});
+	</script>
+	<?php
+}
+add_action( 'wp_footer', 'twentytwentyfive_custom_video_player' );
+
