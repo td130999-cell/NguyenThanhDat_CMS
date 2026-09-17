@@ -19,7 +19,7 @@ function demomodule5_setup() {
 add_action( 'after_setup_theme', 'demomodule5_setup' );
 
 function demomodule5_scripts() {
-    wp_enqueue_style( 'demomodule5-style', get_stylesheet_uri(), array(), '1.0' );
+    wp_enqueue_style( 'demomodule5-style', get_stylesheet_uri(), array(), filemtime( get_stylesheet_directory() . '/style.css' ) );
 }
 add_action( 'wp_enqueue_scripts', 'demomodule5_scripts' );
 
