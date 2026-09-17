@@ -26,65 +26,177 @@ body {
     padding: 0 20px;
 }
 
-/* Header */
+/* ========================================================
+   HEADER / THANH NAVBAR BẮT ĐẦU TẠI ĐÂY
+   ======================================================== */
 .site-header {
     background: #ffffff;
-    border-bottom: 2px solid #0284c7;
     padding: 15px 0;
-    margin-bottom: 30px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 25px;
+    border-bottom: 1px solid #e2e8f0;
 }
 
-.header-inner {
+.custom-navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
+    justify-content: space-between;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    height: 52px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 
-.site-title {
-    font-size: 22px;
-    font-weight: 700;
-}
-
-.site-title a {
-    color: #1e3a8a;
-    text-decoration: none;
-}
-
-.header-search form {
+/* Khối bên trái: Group C, Tab Home, Search form */
+.navbar-left {
     display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-brand {
+    font-size: 18px;
+    color: #555555;
+    text-decoration: none;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-tab {
+    font-size: 14px;
+    color: #495057;
+    text-decoration: none;
+    padding: 0 22px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-tab.active {
+    background-color: #eaeaea;
+    color: #212529;
+}
+
+.navbar-search {
+    display: flex;
+    align-items: center;
     gap: 6px;
+    margin-left: 12px;
 }
 
-.header-search input[type="search"] {
-    padding: 8px 14px;
-    border: 1px solid #cbd5e1;
+.navbar-search input[type="search"] {
+    height: 32px;
+    padding: 0 10px;
+    border: 1px solid #ced4da;
     border-radius: 4px;
-    font-size: 14px;
-    width: 260px;
+    font-size: 13px;
+    background: #ffffff;
+    color: #495057;
     outline: none;
+    width: 170px;
 }
 
-.header-search input[type="search"]:focus {
-    border-color: #0284c7;
+.navbar-search input[type="search"]:focus {
+    border-color: #80bdff;
 }
 
-.header-search button {
-    background: #0284c7;
-    color: #ffffff;
-    border: none;
-    padding: 8px 18px;
+.navbar-search button {
+    height: 32px;
+    padding: 0 12px;
+    border: 1px solid #ced4da;
     border-radius: 4px;
+    background: #ffffff;
+    color: #333333;
+    font-size: 13px;
     cursor: pointer;
-    font-weight: 600;
-    font-size: 14px;
+    transition: background-color 0.15s ease;
 }
 
-.header-search button:hover {
-    background: #0369a1;
+.navbar-search button:hover {
+    background: #f1f3f5;
 }
+
+/* Khối bên phải: Links & Icons */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-right: 15px;
+    gap: 24px;
+}
+
+.navbar-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.navbar-link {
+    color: #555555;
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.navbar-link:hover {
+    color: #111111;
+}
+
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.navbar-action-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #555555;
+    cursor: pointer;
+}
+
+.navbar-action-item:hover {
+    color: #111111;
+}
+
+.action-icon {
+    display: block;
+    margin-bottom: 2px;
+}
+
+.action-text {
+    font-size: 10px;
+    color: #666666;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+    .custom-navbar {
+        height: auto;
+        flex-direction: column;
+        padding: 10px 0;
+        gap: 10px;
+    }
+    .navbar-left, .navbar-right {
+        height: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 5px 10px;
+    }
+    .navbar-tab {
+        height: 32px;
+        border-radius: 4px;
+    }
+}
+/* ================= KẾT THÚC CSS HEADER / THANH NAVBAR ================= */
 
 /* Search Header */
 .search-header {
