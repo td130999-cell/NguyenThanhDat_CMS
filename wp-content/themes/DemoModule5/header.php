@@ -16,7 +16,7 @@
         <nav class="custom-navbar">
             <!-- Khối bên trái: Tên nhóm, Tab Home, Ô tìm kiếm -->
             <div class="navbar-left">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="navbar-brand">Group C</a>
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="navbar-brand">Group A Demo</a>
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="navbar-tab active">Home</a>
                 
                 <form role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>" class="navbar-search">
