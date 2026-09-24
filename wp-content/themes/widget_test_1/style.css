@@ -1,0 +1,31 @@
+/*
+Theme Name: Widget Test 1
+Theme URI: http://wordpress.local
+Author: Nguyen Thanh Dat
+Description: Theme test widget test 1
+Version: 1.0.0
+*/
+
+/* giai thich*/
+/*
+Theme Name: Widget Test 1
+(Ý NGHĨA: BẮT BUỘC. Tên hiển thị chính thức của theme trong trang quản trị WP-Admin; thiếu dòng này theme sẽ bị lỗi Broken Theme).
+
+Theme URI: https://example.com
+(Ý NGHĨA: Tùy chọn. Đường dẫn đến trang giới thiệu hoặc tài liệu chi tiết của theme; thiếu thì không hiện link xem thêm).
+
+Author: Nguyen Thanh Dat
+(Ý NGHĨA: Tùy chọn. Tên của tác giả/lập trình viên phát triển theme này; thiếu thì hiển thị trống hoặc là Anonymous).
+
+Author URI: https://example.com
+(Ý NGHĨA: Tùy chọn. Trang web cá nhân hoặc portfolio của tác giả; thiếu thì tên tác giả chỉ là chữ thường, không bấm link được).
+
+Description: Theme test widget
+(Ý NGHĨA: Tùy chọn. Đoạn văn mô tả ngắn về chức năng của theme trong mục xem chi tiết Theme Details; thiếu thì để trống mô tả).
+
+Version: 1.0.0
+(Ý NGHĨA: Tùy chọn. Số hiệu phiên bản hiện tại; dùng để theo dõi cập nhật và xóa bộ nhớ đệm cache trình duyệt; thiếu thì không hiện phiên bản).
+*/
+h1 {
+    color: red;
+}
