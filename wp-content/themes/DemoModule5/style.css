@@ -1,0 +1,413 @@
+/*
+Theme Name: DemoModule5
+Theme URI: http://fit.tdc.edu.vn/
+Author: Nguyen Thanh Dat
+Author URI: http://fit.tdc.edu.vn/
+Description: Theme DemoModule5 - FIT TDC Search Result Customization
+Version: 1.0
+*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #333333;
+    background-color: #f4f6f8;
+    line-height: 1.6;
+}
+
+.site-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ========================================================
+   HEADER / THANH NAVBAR BẮT ĐẦU TẠI ĐÂY
+   ======================================================== */
+.site-header {
+    background: #ffffff;
+    padding: 15px 0;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.custom-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    height: 52px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+/* Khối bên trái: Group C, Tab Home, Search form */
+.navbar-left {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-brand {
+    font-size: 18px;
+    color: #555555;
+    text-decoration: none;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-tab {
+    font-size: 14px;
+    color: #495057;
+    text-decoration: none;
+    padding: 0 22px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-tab.active {
+    background-color: #eaeaea;
+    color: #212529;
+}
+
+.navbar-search {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 12px;
+}
+
+.navbar-search input[type="search"] {
+    height: 32px;
+    padding: 0 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 13px;
+    background: #ffffff;
+    color: #495057;
+    outline: none;
+    width: 170px;
+}
+
+.navbar-search input[type="search"]:focus {
+    border-color: #80bdff;
+}
+
+.navbar-search button {
+    height: 32px;
+    padding: 0 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background: #ffffff;
+    color: #333333;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.navbar-search button:hover {
+    background: #f1f3f5;
+}
+
+/* Khối bên phải: Links & Icons */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-right: 15px;
+    gap: 24px;
+}
+
+.navbar-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.navbar-link {
+    color: #555555;
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.navbar-link:hover {
+    color: #111111;
+}
+
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.navbar-action-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #555555;
+    cursor: pointer;
+}
+
+.navbar-action-item:hover {
+    color: #111111;
+}
+
+.action-icon {
+    display: block;
+    margin-bottom: 2px;
+}
+
+.action-text {
+    font-size: 10px;
+    color: #666666;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+    .custom-navbar {
+        height: auto;
+        flex-direction: column;
+        padding: 10px 0;
+        gap: 10px;
+    }
+    .navbar-left, .navbar-right {
+        height: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 5px 10px;
+    }
+    .navbar-tab {
+        height: 32px;
+        border-radius: 4px;
+    }
+}
+/* ================= KẾT THÚC CSS HEADER / THANH NAVBAR ================= */
+
+/* Search Header */
+.search-header {
+    background: #ffffff;
+    padding: 20px 25px;
+    border-radius: 6px;
+    margin-bottom: 25px;
+    border-left: 5px solid #0284c7;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.search-title {
+    font-size: 20px;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.search-title span {
+    color: #0284c7;
+}
+
+.search-count {
+    color: #64748b;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Search Result List */
+.search-results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 40px;
+}
+
+/* Search Result Card (Exact match to the instruction image) */
+.search-result-card {
+    display: flex;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-result-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+}
+
+/* 1. Thumbnail */
+.search-card-thumb {
+    flex: 0 0 200px;
+    width: 200px;
+    height: 125px;
+    overflow: hidden;
+    background: #f1f5f9;
+}
+
+.search-card-thumb a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.search-card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.search-result-card:hover .search-card-thumb img {
+    transform: scale(1.05);
+}
+
+/* 2. Date Badge */
+.search-card-date {
+    flex: 0 0 85px;
+    width: 85px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-right: 1px solid #e2e8f0;
+    background: #ffffff;
+    text-align: center;
+}
+
+.search-card-date .date-day {
+    font-size: 30px;
+    font-weight: 700;
+    color: #1e3a8a;
+    line-height: 1;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.search-card-date .date-month {
+    font-size: 10px;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    margin-top: 5px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+/* 3. Content */
+.search-card-content {
+    flex: 1;
+    padding: 12px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.search-card-title {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.search-card-title a {
+    color: #0284c7;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.search-card-title a:hover {
+    color: #0369a1;
+    text-decoration: underline;
+}
+
+.search-card-excerpt {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* No results / Pagination */
+.no-results {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 6px;
+    text-align: center;
+    color: #64748b;
+    border: 1px dashed #cbd5e1;
+}
+
+.pagination {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.pagination .page-numbers {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 0 4px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    color: #334155;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.pagination .page-numbers.current {
+    background: #0284c7;
+    color: #ffffff;
+    border-color: #0284c7;
+}
+
+/* Footer */
+.site-footer {
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    padding: 25px 0;
+    margin-top: 50px;
+    text-align: center;
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 650px) {
+    .search-result-card {
+        flex-direction: column;
+    }
+    .search-card-thumb {
+        width: 100%;
+        max-width: 100%;
+        height: 180px;
+    }
+    .search-card-date {
+        width: 100%;
+        max-width: 100%;
+        flex-direction: row;
+        gap: 8px;
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0;
+        padding: 8px 15px;
+        justify-content: flex-start;
+    }
+    .search-card-date .date-day {
+        font-size: 20px;
+    }
+}
