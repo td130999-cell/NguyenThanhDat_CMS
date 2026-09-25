@@ -1,0 +1,660 @@
+/*
+Theme Name: widget_test_4
+Theme URI: http://wordpress.local
+Author: Nguyen Thanh Dat
+Description: Theme kiểm tra Widget Test 4 môn CMS - Bố cục chuẩn Wireframe & Widget Bất Động Sản Random
+Version: 1.0.0
+*/
+
+/* ========================================================
+   1. RESET & CSS CƠ BẢN
+   ======================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f1f5f9;
+    color: #334155;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+a {
+    color: #2563eb;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #1d4ed8;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.site-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ========================================================
+   2. HEADER (1)
+   ======================================================== */
+.site-header {
+    background: #ffffff;
+    border-bottom: 2px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    gap: 20px;
+}
+
+.header-brand h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.5px;
+}
+
+.header-brand h1 a {
+    color: inherit;
+}
+
+.header-brand .brand-tagline {
+    font-size: 12px;
+    color: #64748b;
+    display: block;
+}
+
+.header-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+}
+
+.header-nav ul li a {
+    font-weight: 600;
+    color: #475569;
+    font-size: 15px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.header-nav ul li a:hover,
+.header-nav ul li.active a {
+    color: #2563eb;
+    background-color: #eff6ff;
+}
+
+.header-search form {
+    display: flex;
+    align-items: center;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.header-search input[type="search"] {
+    border: none;
+    background: transparent;
+    padding: 8px 14px;
+    font-size: 14px;
+    outline: none;
+    width: 200px;
+    color: #334155;
+}
+
+.header-search button {
+    border: none;
+    background: #2563eb;
+    color: #ffffff;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.header-search button:hover {
+    background: #1d4ed8;
+}
+
+/* ========================================================
+   3. BỐ CỤC 3 CỘT (MAIN THREE-COLUMN LAYOUT)
+   ======================================================== */
+.main-layout-wrapper {
+    padding: 30px 0;
+}
+
+.three-column-grid {
+    display: grid;
+    grid-template-columns: 260px 1fr 280px;
+    gap: 24px;
+    align-items: start;
+}
+
+.sidebar-col {
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.main-content-col {
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    padding: 28px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    min-height: 500px;
+}
+
+.block-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+    border-bottom: 2px solid #2563eb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.block-badge {
+    font-size: 11px;
+    background: #e2e8f0;
+    color: #475569;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+/* Danh sách link trong sidebar */
+.sidebar-list {
+    list-style: none;
+}
+
+.sidebar-list li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #f1f5f9;
+    font-size: 14px;
+}
+
+.sidebar-list li:last-child {
+    border-bottom: none;
+}
+
+.sidebar-list li a {
+    color: #334155;
+    display: block;
+}
+
+.sidebar-list li a:hover {
+    color: #2563eb;
+    padding-left: 4px;
+}
+
+.comment-item {
+    padding: 12px 0;
+    border-bottom: 1px dashed #f1f5f9;
+}
+
+.comment-item:last-child {
+    border-bottom: none;
+}
+
+.comment-author {
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 13px;
+}
+
+.comment-text {
+    font-size: 13px;
+    color: #64748b;
+    margin-top: 4px;
+}
+
+/* ========================================================
+   4. NỘI DUNG TRANG CHỦ & DANH SÁCH (POST CARDS)
+   ======================================================== */
+.posts-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post-item-card {
+    display: flex;
+    gap: 18px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.post-item-card:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.post-item-thumb {
+    width: 200px;
+    height: 130px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #e2e8f0;
+}
+
+.post-item-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.post-item-thumb:hover img {
+    transform: scale(1.05);
+}
+
+.post-item-info {
+    flex: 1;
+}
+
+.post-item-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.post-item-title a {
+    color: #1e293b;
+}
+
+.post-item-title a:hover {
+    color: #2563eb;
+}
+
+.post-item-meta {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 8px;
+    display: flex;
+    gap: 12px;
+}
+
+.post-item-excerpt {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.6;
+}
+
+/* ========================================================
+   5. TRANG DANH SÁCH / TÌM KIẾM (SEARCH 4)
+   ======================================================== */
+.search-horizontal-bar {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.search-horizontal-bar h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+
+.search-horizontal-bar form {
+    display: flex;
+    gap: 12px;
+}
+
+.search-horizontal-bar input[type="search"] {
+    flex: 1;
+    padding: 12px 18px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+}
+
+.search-horizontal-bar button {
+    padding: 12px 28px;
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ========================================================
+   6. TRANG CHI TIẾT (SINGLE POST, PREV-NEXT 7, COMMENTS 8)
+   ======================================================== */
+.single-detail-article h1 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 14px;
+    line-height: 1.35;
+}
+
+.single-post-meta {
+    font-size: 14px;
+    color: #64748b;
+    padding-bottom: 14px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.single-featured-image {
+    margin-bottom: 24px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.single-content-body {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #334155;
+    margin-bottom: 30px;
+}
+
+/* Khối Prev - Next Post (7) */
+.prev-next-posts-bar {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 18px 24px;
+    margin: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.nav-prev-link, .nav-next-link {
+    max-width: 48%;
+}
+
+.nav-prev-link span, .nav-next-link span {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+}
+
+.nav-prev-link a, .nav-next-link a {
+    font-weight: 700;
+    font-size: 15px;
+    color: #1e293b;
+}
+
+/* Khối Comments (8) */
+.single-comments-block {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 30px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* ========================================================
+   7. KHU VỰC HIỂN THỊ WIDGET TRÊN FOOTER (ABOVE FOOTER / KHỐI 15)
+      VÀ CUSTOM WIDGET: widget_test_4 (BẤT ĐỘNG SẢN RANDOM)
+   ======================================================== */
+.above-footer-section {
+    background: #ffffff;
+    border-top: 2px solid #e2e8f0;
+    border-bottom: 1px solid #cbd5e1;
+    padding: 40px 0 50px 0;
+    margin-top: 30px;
+}
+
+.widget-test4-container {
+    width: 100%;
+}
+
+.widget-test4-header {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.widget-test4-main-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #1e293b;
+    position: relative;
+    padding-left: 14px;
+}
+
+.widget-test4-main-title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    bottom: 4px;
+    width: 5px;
+    background: #20b26c;
+    border-radius: 3px;
+}
+
+.widget-test4-note {
+    font-size: 13px;
+    color: #64748b;
+    background: #f1f5f9;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+/* Lưới hiển thị 3 Card đúng như hình mẫu */
+.widget-test4-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* Thẻ Card Bất Động Sản */
+.bds-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.bds-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.09);
+}
+
+/* Khung hình ảnh + Badge "Đang mở bán" */
+.bds-card-thumb-wrap {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    background: #e2e8f0;
+    overflow: hidden;
+}
+
+.bds-card-thumb-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.bds-card:hover .bds-card-thumb-wrap img {
+    transform: scale(1.04);
+}
+
+/* Nhãn màu xanh lá góc trên bên trái: "Đang mở bán" */
+.bds-badge-status {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background-color: #20b26c; /* Màu xanh lá chuẩn như ảnh mẫu */
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 4px;
+    letter-spacing: 0.2px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* Phần nội dung dưới hình ảnh */
+.bds-card-content {
+    padding: 22px 20px 24px 20px;
+    background: #fbfbfc;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tiêu đề dự án */
+.bds-card-title {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Times New Roman", serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #374151;
+    line-height: 1.35;
+    margin-bottom: 14px;
+    min-height: 54px;
+}
+
+.bds-card-title a {
+    color: #374151;
+    transition: color 0.2s ease;
+}
+
+.bds-card-title a:hover {
+    color: #20b26c;
+}
+
+/* Chủ đầu tư */
+.bds-investor {
+    font-size: 15px;
+    color: #4b5563;
+    margin-bottom: 14px;
+    line-height: 1.45;
+}
+
+.bds-investor strong {
+    color: #374151;
+    font-weight: 600;
+}
+
+/* Dòng meta thông tin (Thời hạn sở hữu & Địa chỉ) */
+.bds-meta-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: #4b5563;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.bds-meta-row:last-child {
+    margin-bottom: 0;
+}
+
+.bds-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: #6b7280;
+}
+
+/* ========================================================
+   8. FOOTER (3)
+   ======================================================== */
+.site-footer {
+    background: #0f172a;
+    color: #94a3b8;
+    padding: 30px 0;
+    border-top: 3px solid #2563eb;
+    text-align: center;
+    font-size: 14px;
+}
+
+.site-footer p {
+    margin-bottom: 6px;
+}
+
+.footer-credit {
+    font-size: 13px;
+    color: #64748b;
+}
+
+/* ========================================================
+   9. RESPONSIVE DESIGN (CHO MỌI THIẾT BỊ)
+   ======================================================== */
+@media (max-width: 1024px) {
+    .three-column-grid {
+        grid-template-columns: 220px 1fr 240px;
+        gap: 16px;
+    }
+    .widget-test4-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .header-inner {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 0;
+    }
+    .three-column-grid {
+        grid-template-columns: 1fr;
+    }
+    .widget-test4-grid {
+        grid-template-columns: 1fr;
+    }
+    .post-item-card {
+        flex-direction: column;
+    }
+    .post-item-thumb {
+        width: 100%;
+        height: 180px;
+    }
+}
