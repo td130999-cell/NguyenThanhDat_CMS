@@ -128,6 +128,15 @@ if ($configExtra = getenv_docker('WORDPRESS_CONFIG_EXTRA', '')) {
 	eval($configExtra);
 }
 
+if (!defined('WP_HOME')) {
+	$http_host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost';
+	define('WP_HOME', 'http://' . $http_host);
+}
+if (!defined('WP_SITEURL')) {
+	$http_host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost';
+	define('WP_SITEURL', 'http://' . $http_host);
+}
+
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */
